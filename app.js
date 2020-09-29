@@ -1,10 +1,12 @@
 const express = require("express");
-const config = require("config");
+const app = express();
 const mongoose = require("mongoose");
 
-const app = express();
 
+const config = require("config");
 const PORT = config.get("port") || 5000;
+
+app.use('/api/auth', require('./routes/auth.routes'));
 
 (async function start() {
   try {
@@ -13,7 +15,7 @@ const PORT = config.get("port") || 5000;
       useUnifiedTopology: true,
       useCreateIndex: true,
     });
-    app.listen(PORT, () => console.log(`Started on prt ${PORT} ...`));
+    app.listen(PORT, () => console.log(`Started on port ${PORT} ...`));
   } catch (error) {
     console.log("Server error", error);
     process.exit();
