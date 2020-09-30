@@ -18,3 +18,7 @@ input.yellow-input:focus + label {
     color: #ffeb3b !important;
 }
 
+.nav-wrapper {
+    padding: 0px 20px;
+}
+
