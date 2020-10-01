@@ -22,7 +22,7 @@ export default function useForm() {
 
   const register = async () => {
     try {
-      const data = await request("/api/auth/register", "POST", { ...form }, {});
+      await request("/api/auth/register", "POST", { ...form }, {});
       setForm({email: '', pass: ''})
     } catch (error) {
 

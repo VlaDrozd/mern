@@ -1,5 +1,6 @@
 {
     "port": 8000,
     "jwtSecret": "supersecretkey",
-    "mongoURI": "mongodb+srv://dzordalv:65432178@cluster0.rdu6t.azure.mongodb.net/app?retryWrites=true&w=majority"
+    "mongoURI": "mongodb+srv://dzordalv:65432178@cluster0.rdu6t.azure.mongodb.net/app?retryWrites=true&w=majority",
+    "baseURL": "http://localhost:5000"
 }

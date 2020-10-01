@@ -5,13 +5,16 @@ import { useRoutes } from "./routes";
 import { AuthContext } from "./context/AuthContext";
 import { useAuth } from './hooks/auth.hook';
 import { Navbar } from "./components/Navbar/Navbar";
+import { Loader } from './components/Loader/Loader';
 
 function App() {
   const auth = useAuth();
 
-  console.log(auth);
-
   const routes = useRoutes(auth.isAuth);
+
+  if(!auth.isReady) {
+    return <Loader />
+  }
 
   return (
     <AuthContext.Provider value={auth}>
