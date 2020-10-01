@@ -1,18 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useCopy } from "../../hooks/copy.hook";
 
 export const LinksList = ({ links }) => {
+  const { copy } = useCopy();
+
   if (!links.length) {
     return <p className="center">No Links</p>;
   }
-
-  const copy = async (text) => {
-    try {
-      navigator.clipboard.writeText(text);
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   return (
     <div>
@@ -35,7 +30,6 @@ export const LinksList = ({ links }) => {
                 <td>{index + 1} </td>
                 <td>{link.to}</td>
                 <td>
-                  {" "}
                   <button
                     className="btn"
                     onClick={() => {

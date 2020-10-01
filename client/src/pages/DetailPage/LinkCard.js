@@ -1,6 +1,9 @@
 import React from "react";
+import { useCopy } from "../../hooks/copy.hook";
 
 export const LinkCard = ({ link }) => {
+  const { copy } = useCopy();
+
   return (
     <div className="row">
       <div className="col s12 m6">
@@ -12,11 +15,20 @@ export const LinkCard = ({ link }) => {
               <a href={link.from} target="_blank" rel="noopener noreferrer">
                 {link.from}
               </a>
+              <button
+                className="btn"
+                onClick={() => {
+                  copy(link.from);
+                }}
+                style={{ marginLeft: "5px" }}
+              >
+                <i className="material-icons">content_copy</i>
+              </button>
             </p>
             <p>
               Original link:{" "}
               <a href={link.to} target="_blank" rel="noopener noreferrer">
-                {link.to}
+                {link.to.slice(0, 50)}
               </a>
             </p>
             <p>

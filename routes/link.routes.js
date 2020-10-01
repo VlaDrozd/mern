@@ -44,7 +44,6 @@ router.get("/", auth, async (req, res) => {
 router.get("/:id", auth, async (req, res) => {
   try {
     const link = await Links.findById(req.params.id);
-    console.log(link);
     res.status(200).json(link);
   } catch (error) {
     res.status(500).json({ message: "Error" });
